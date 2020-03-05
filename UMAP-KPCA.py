@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import umap.umap_ as umap
 from sklearn.decomposition import KernelPCA
 from sklearn import decomposition
+import matplotlib.pyplot as plt
 
 data = pd.read_csv('train.csv')
 print(data.shape)
@@ -24,3 +25,7 @@ pca = decomposition.PCA(n_components=2)
 pca.fit(kpca_result)
 pca_result = pca.transform(kpca_result)
 print(pca_result.shape)
+
+plt.figure(figsize=(12, 8))
+plt.title('Factorize')
+plt.scatter(pca_result[:, 0], pca_result[:, 1])
